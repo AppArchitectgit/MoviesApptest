@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/home"
+        android:icon="@drawable/homeicon">
+
+    </item>
+
+    <item
+        android:id="@+id/nav_fvrts"
+        android:title="@string/favourites"
+        android:icon="@drawable/favorites">
+
+    </item>
+
+    <item
+        android:id="@+id/nav_comingSoon"
+        android:title="@string/comingsoon"
+        android:icon="@drawable/coming_soon">
+
+    </item>
+
+    <item
+        android:id="@+id/nav_downloads"
+        android:title="@string/downloads"
+        android:icon="@drawable/downloadicon">
+
+    </item>
+    <item
+        android:id="@+id/nav_search"
+        android:title="@string/search2"
+        android:icon="@drawable/searchicon">
+
+    </item>
+
+</menu>

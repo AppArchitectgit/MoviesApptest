@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MovieDetails">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_barLayout_movie_details"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar_movie_details"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/movie_title_in_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/moviename"
+        android:fontFamily="@font/montserratmedium"
+        android:padding="3dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="@id/app_barLayout_movie_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/image_detailed"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher_background"
+        android:contentDescription="@string/image_poster"
+        app:layout_constraintTop_toBottomOf="@id/app_barLayout_movie_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/layout_movieDetailsReleasedDateAndRating"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/image_detailed"
+        app:layout_constraintStart_toStartOf="parent">
+
+    <TextView
+        android:id="@+id/releasedDateMovie"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/opensansregular"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        android:text="@string/released_date2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensansregular"
+        android:textColor="#474444"
+        android:layout_marginStart="2dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/separatorReleaseAndRating"/>
+
+    <TextView
+        android:id="@+id/ratingMovie"
+        android:layout_marginStart="3dp"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/opensansregular"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="@string/ratingmovie"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/layout_movieDetailsReleasedDateAndRating"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/overview"
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OverviewText"
+           android:layout_marginTop="5dp"
+            android:fontFamily="@font/opensansregular"
+           android:paddingEnd="20dp"
+            android:text="@string/here_overview_of_movie_will_be_set"
+            tools:ignore="RtlSymmetry" />
+
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
