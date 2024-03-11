@@ -48,8 +48,14 @@ class MainActivity : AppCompatActivity() {
             fetchMoviesFromAPI()
         } else {
             //fetching Movies From Database()
+            fetchMoviesFromDatabase()
             binding.textViewInternet.visibility = View.VISIBLE
         }
+    }
+
+    override fun onPause() {
+        binding.searchView.clearFocus()
+        super.onPause()
     }
 
     private fun setupRecyclerView() {
@@ -93,6 +99,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+
+
+
     @OptIn(DelicateCoroutinesApi::class)
     private fun fetchMoviesFromAPI() {
         GlobalScope.launch(Dispatchers.Main) {
@@ -101,11 +111,11 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val movieResponse = response.body()
                     movieResponse?.let {
-                        for (movie in it.results) {
-
-                            insertMovieIntoDatabase(movie)
+//                        for (movie in it.results) {
 //
-                        }
+//                            //insertMovieIntoDatabase(movie)
+////
+//                        }
                         movieAdapter.updateMovies(it.results)
                     }
                 } else {
@@ -117,18 +127,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    @OptIn(DelicateCoroutinesApi::class)
-//    private fun fetchMoviesFromDatabase() {
-//        GlobalScope.launch(Dispatchers.Main) {
-//            try {
-//
-//                val viewedMovies = database.movieDao().getAllMovies().map { it.toMovie() }
-//                movieAdapter.updateMovies(viewedMovies)
-//            } catch (e: Exception) {
-//                Log.e("DatabaseFetchError", "Error fetching movies from database: ${e.message}", e)
-//            }
-//        }
-//    }
+
+
+
+
+
+
+    @OptIn(DelicateCoroutinesApi::class)
+    private fun fetchMoviesFromDatabase() {
+        GlobalScope.launch(Dispatchers.Main) {
+            try {
+
+                val viewedMovies = database.movieDao().getAllMovies().map { it.toMovie() }
+                movieAdapter.updateMovies(viewedMovies)
+            } catch (e: Exception) {
+                Log.e("DatabaseFetchError", "Error fetching movies from database: ${e.message}", e)
+            }
+        }
+    }
+
+
+
+
+
 
     @OptIn(DelicateCoroutinesApi::class)
     private fun insertMovieIntoDatabase(movie: Movie) {
